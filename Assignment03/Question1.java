@@ -44,11 +44,13 @@ public class Question1{
 		throw new IllegalArgumentException("Input should not be empty");
 	int indx = 0;
 	int cntr = 0;
-	double min = 0.0; 
+	double min = Double.MAX_VALUE; 
 	for(int i = 0; i < accs.length; i++){
 		if(accs[i] != null)
-			if(cntr == 0)
+			if(cntr == 0){
 				min = accs[i].getBalance();
+				cntr++;
+				}
 			else if ( accs[i].getBalance() < min){
 				min = accs[i].getBalance();
 				indx = i;

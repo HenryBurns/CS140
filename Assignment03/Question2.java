@@ -35,7 +35,7 @@ public class Question2{
 	 @return the bank account in the array accs that has the
 	 smallest balance. If there is more than one, then return the 
 	 first of them.
-	 @return null if accs is null, empty, or all elements are empty
+	 @return null if accs is null, empty, or all elements are null
 	*/
 	public static BankAccount1 lowestBankBalance(BankAccount1[] accs){
 	if(accs == null)
@@ -44,8 +44,9 @@ public class Question2{
 		return null;
 	int indx = 0;
 	int cntr = 0;
-	double min = accs[0].getBalance();
-	for(int i = 1; i < accs.length; i++){
+	int temp = 0;
+	double min = Double.MIN_VALUE;
+	for(int i = 0; i < accs.length; i++){
 		if(accs[i] != null)
 			if( accs[i].getBalance() < min){
 				min = accs[i].getBalance();
@@ -94,8 +95,7 @@ public class Question2{
 	 Assume accs is not null or empty an no Customer in accs is null
 	 and no account in any Customer is null.
 	 @param accs the array of Customer elements to examine
-	 @return the average of the balances of the customer accounts of
-	 the customers in accs
+	 @return the average of the balances of the customer accounts		of the customers in accs
 	 @return 0.0 if accs is null, empty, or all elements are null
     */
 	public static double averageCustomerBalance(Customer[] accs){
@@ -131,10 +131,10 @@ public class Question2{
 	if(accs.length == 0)
 		return null;
 	int cntr = 0;
-	double bal = accs[0].getBalance();
-		Customer ansr = accs[0];
-			for(Customer temp: accs){
-				if(temp != null && temp.getBalance() > bal){
+	double bal = -Double.MAX_VALUE;
+	Customer ansr = accs[0];
+	for(Customer temp: accs){
+		if(temp != null && temp.getBalance() > bal){
 					bal = temp.getBalance();
 					ansr = temp;
 					cntr++;

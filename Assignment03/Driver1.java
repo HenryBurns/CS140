@@ -56,7 +56,7 @@ public class Driver1{
 			System.out.println(e.getMessage());
 		}
 		 try {
-			System.out.println(Question1.lowestBankBalance(test) + " WHYYY");
+			System.out.println(Question1.lowestBankBalance(test) );
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}
