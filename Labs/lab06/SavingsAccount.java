@@ -19,7 +19,7 @@ public class SavingsAccount extends BankAccount{
 	}
 	@Override
 	public String toString(){
-		String ansr = super.toString() + " @ N%";
+		String ansr = super.toString() + " @ " + rate + "%";
 		return ansr;
 	}
 }
