@@ -10,17 +10,21 @@ public class Visualizer{
 		Line line2 = new Line("B4", elev);
 		List<Passenger> pass2 = line2.getLine();
 		for(int i = 0; i < 6; i++)
-			pass2.add(new Passenger("9", elev));
+			pass.add(new Passenger("9", elev));
 		for(int i = 0; i <3 ; i++)
 			pass.add(new Passenger("3",elev));
 		for(int i = 0 ;i <3 ; i++)
-			pass1.add(new Passenger("B5", elev));
+			pass.add(new Passenger("B5", elev));
 		for(int i = 0; i < 2; i++)
 			pass2.add(new Passenger("G", elev));
 		for(int i = 0; i < 2; i++)
 			pass1.add(new Passenger("5", elev));
 		for(int i = 0; i < 1; i++)
-			pass.add(new Passenger("B2", elev));
+			pass2.add(new Passenger("B2", elev));
+		for(int i = 0 ;i <3 ; i++)
+			pass1.add(new Passenger("7", elev));
+		for(int i = 0 ;i <3 ; i++)
+			pass2.add(new Passenger("B1", elev));
 		showElev(elev); 
 		elev.getLines().get(elev.getCurrentFloor()).loadElevator(); //NEW
 		for(int i = 0; i < 35; i++) {
