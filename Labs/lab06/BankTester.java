@@ -2,11 +2,11 @@ package lab06;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 public class BankTester {
 	List<BankAccount> accounts;
 	List<Object> objects;
@@ -29,6 +29,21 @@ public class BankTester {
 		accounts.add(new SavingsAccount(100.0, .1));
 		accounts.add(new CheckingAccount(103.0, 4));
 		accounts.add(new SavingsAccount(500.0, .05));
+		objects = new ArrayList<>();
+		int i = 1;
+		objects.add(i);
+		String[] str = {"hi", "world"};
+		objects.add(str);
+		HashMap<Integer, String> hmap = new HashMap<>();
+		hmap.put(1, "hillo world");
+		hmap.put(2, "goodbye");
+		objects.add(hmap);
+		BankAccount[][] tooDimensions = new BankAccount[10][20];
+		objects.add(tooDimensions);
+		objects.add(null);
+		objects.add(true);
+		objects.add(objects);
+		objects.add(new IllegalArgumentException("Is this an exception?"));
 	}
 
 	@After
@@ -118,6 +133,7 @@ public class BankTester {
 			System.out.println(b);
 
 		}
+		System.out.println(objects);
 	}
 		@Test
 		public void myTesting(){
@@ -126,11 +142,15 @@ public class BankTester {
 			assertEquals(accounts.get(0).getBalance(), 110.0, 1e-6);
 			assertEquals(accounts.get(1).getBalance(), 710.0, 1e-6);
 			assertEquals(accounts.get(2).getBalance(), 510.0, 1e-6);
-			System.out.println(accounts.get(5).getBalance());
 			assertEquals(accounts.get(3).getBalance(), 111.0, 1e-6);
 			assertEquals(accounts.get(4).getBalance(), 113.0, 1e-6);
 			assertEquals(accounts.get(5).getBalance(), 510.5, 1e-6);
-
+			
+			for(int i = 0; i < 10; i++) {
+					for(int j = 0; j < 6; j++)
+						accounts.get(j).withdraw(10.0);
+					System.out.println(accounts);
+			}
 		}
 	}
 
